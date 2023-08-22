@@ -14,6 +14,7 @@ public class PlayerLife : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
     }
+    [SerializeField] private AudioSource DeathSoundEffect;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,6 +29,7 @@ public class PlayerLife : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
+        DeathSoundEffect.Play();
     }
 
     private void RestartLevel()
